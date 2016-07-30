@@ -8,7 +8,7 @@ public class App_singleton {
 	public static void main(String[] args) {
 		
 		// We buy a box of filled chocolate
-		ChocolateBox box = ChocolateBox.BuyBonbonBox();
+		ChocolateBox box = ChocolateBox.BuyChocolateBox();
 		
 		// Achtung! There are people who wants ours Chocolates!
 		System.out.println("Suddenly, 4 people introduced us and ask for the box...");
@@ -21,7 +21,7 @@ public class App_singleton {
 		Random r = new Random();
 		// Well... I guess I could share a few with them
 		System.out.println("We know how many times they open it...");
-		while(box.ThereAreBonbons())
+		while(box.ThereAreChocolates())
 		{
 			box.PickupOneChocolate(people.get(r.nextInt(4)));
 		}
@@ -34,9 +34,9 @@ public class App_singleton {
 		}
 		
 		// Are you sure that we may buy another box?
-		ChocolateBox box2 = ChocolateBox.BuyBonbonBox();
+		ChocolateBox box2 = ChocolateBox.BuyChocolateBox();
 		
-		if(box2.ThereAreBonbons())
+		if(box2.ThereAreChocolates())
 		{
 			System.out.println("Chocolate everywhere!");
 		}
@@ -62,14 +62,14 @@ class ChocolateBox
 		System.out.println("Someone bought a box of filled chocolate...");
 	}
 	
-	public static ChocolateBox BuyBonbonBox()
+	public static ChocolateBox BuyChocolateBox()
 	{
 		return newBox;
 	}
 	
 	public void PickupOneChocolate(Person person)
 	{
-		if(ThereAreBonbons())
+		if(ThereAreChocolates())
 		{
 			// Random number of chocolate 
 			chocolateTaken = r.nextInt(2)+1;
@@ -83,7 +83,7 @@ class ChocolateBox
 		}
 	}
 	
-	public boolean ThereAreBonbons()
+	public boolean ThereAreChocolates()
 	{
 		return (chocolateLeft>0)? true: false;
 	}
